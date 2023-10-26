@@ -1,0 +1,42 @@
+.text-input {
+  width: 45%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 10px 0;
+  box-sizing: border-box;
+  margin-right: 5px;
+}
+
+.add-btn {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 540;
+  margin: 10px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.add-btn:hover {
+  background-color: #27ae60;
+}
+
+.todo-list-container {
+  width: 51%;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .text-input {
+    width: 55%;
+  }
+  .todo-list-container {
+    width: 80%;
+  }
+}
