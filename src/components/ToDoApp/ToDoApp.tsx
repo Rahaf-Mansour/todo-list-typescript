@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { ITask } from "../../interfaces";
 import ToDoList from "../ToDoList";
+import AddToDo from "../AddToDo";
 import "./style.css";
-
+ 
 const ToDoApp: React.FC = () => {
   const [newTaskText, setNewTaskText] = useState<string>("");
   const [todoList, setTodoList] = useState<ITask[]>([]);
