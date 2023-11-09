@@ -5,10 +5,15 @@ import "./style.css";
 
 interface TodoListProps {
   todoList: ITask[];
-  setTodoList: React.Dispatch<React.SetStateAction<ITask[]>>;
+  toggleTodo: (id: number) => void;
+  filterToDos: (id: number) => void;
 }
 
-const ToDoList: React.FC<TodoListProps> = ({ todoList, setTodoList }) => {
+const ToDoList: React.FC<TodoListProps> = ({
+  todoList,
+  toggleTodo,
+  filterToDos,
+}) => {
   return (
     <div className="todo-list">
       {todoList.map((task, key: number) => {
@@ -16,8 +21,8 @@ const ToDoList: React.FC<TodoListProps> = ({ todoList, setTodoList }) => {
           <ToDoItem
             key={task.id}
             task={task}
-            todoList={todoList}
-            setTodoList={setTodoList}
+            toggleTodo={toggleTodo}
+            filterToDos={filterToDos}
           />
         );
       })}

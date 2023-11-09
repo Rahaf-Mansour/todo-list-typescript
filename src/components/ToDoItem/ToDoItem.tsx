@@ -4,24 +4,15 @@ import "./style.css";
 
 interface ToDoItemProps {
   task: ITask;
-  todoList: ITask[];
-  setTodoList: React.Dispatch<React.SetStateAction<ITask[]>>;
+  toggleTodo: (id: number) => void;
+  filterToDos: (id: number) => void;
 }
 
-const ToDoItem: React.FC<ToDoItemProps> = ({ task, todoList, setTodoList }) => {
-  const toggleTodo = (id: number) => {
-    const updatedTasks = todoList.map((task) =>
-      task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
-    );
-    setTodoList(updatedTasks);
-  };
-
-  const deleteTask = (id: number): void => {
-    alert("task deleted");
-    const updatedTasks = todoList.filter((task) => task.id !== id);
-    setTodoList(updatedTasks);
-  };
-
+const ToDoItem: React.FC<ToDoItemProps> = ({
+  task,
+  toggleTodo,
+  filterToDos,
+}) => {
   return (
     <div className="task-item">
       <input
@@ -33,7 +24,7 @@ const ToDoItem: React.FC<ToDoItemProps> = ({ task, todoList, setTodoList }) => {
       <span className={`${task.isCompleted && "completed"}`}>
         {task.taskText}
       </span>
-      <button className="delete-task-btn" onClick={() => deleteTask(task.id)}>
+      <button className="delete-task-btn" onClick={() => filterToDos(task.id)}>
         X
       </button>
     </div>
